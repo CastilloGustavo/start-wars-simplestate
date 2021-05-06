@@ -5,13 +5,13 @@ import {getPlanetsList} from './controller/index.js';
 
 
 const app = express()
-const port = 3001
+const port = 3000
 
 const messageError = 'api no disponible';
 
+app.use('/', express.static('./public'));
 
-
-app.get('/planets', (req, res) => {
+app.get('/api/planets', (req, res) => {
     return getPlanetsList({}).then(response =>{
         console.log('server result')
         console.log(response)
